@@ -86,7 +86,7 @@ const Footer = () => {
           <div className="text-center border-t border-border pt-6 w-full">
             <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
               © {currentYear} Designed & Built with
-              <className="h-4 w-4 text-red-500 animate-pulse" />
+              <span className="h-4 w-4 rounded-full bg-red-500 animate-pulse inline-block" />
               by
               <span className="text-aurora-primary font-medium">Ashutosh Khandai</span>
             </p>
