@@ -181,7 +181,7 @@ const Projects = () => {
         <div className="text-center mt-12">
           <Button
             className="btn-aurora px-8 py-3"
-            onClick={() => window.open('https://github.com/ashutoshkhandai', '_blank')}
+            onClick={() => window.open('https://github.com/ashu765k', '_blank')}
           >
             <Github className="h-5 w-5 mr-2" />
             View All Projects on GitHub
