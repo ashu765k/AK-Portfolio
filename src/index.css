@@ -1,0 +1,325 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Digital Aurora Design System - Modern Portfolio Theme
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light Mode - Digital Aurora Theme - Enhanced Colors */
+    --background: 200 20% 98%;
+    --foreground: 210 40% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 15%;
+
+    --primary: 213 100% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 213 30% 88%;
+    --secondary-foreground: 210 40% 15%;
+
+    --muted: 213 25% 92%;
+    --muted-foreground: 215 20% 40%;
+
+    --accent: 173 80% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 213 25% 85%;
+    --input: 213 25% 88%;
+    --ring: 213 100% 45%;
+
+    --radius: 0.75rem;
+
+    /* Aurora Theme Colors - Enhanced Light Mode */
+    --aurora-primary: 213 100% 45%;
+    --aurora-accent: 173 80% 50%;
+    --aurora-violet: 280 60% 55%;
+    --aurora-glow: 173 100% 85%;
+    
+    /* Gradients - Enhanced */
+    --gradient-aurora: linear-gradient(135deg, hsl(var(--aurora-primary)), hsl(var(--aurora-accent)));
+    --gradient-hero: linear-gradient(180deg, hsl(var(--background)), hsl(213 20% 95%));
+    --gradient-card: linear-gradient(145deg, hsl(213 30% 100% / 0.8), hsl(173 20% 100% / 0.4));
+    
+    /* Glass morphism - Enhanced */
+    --glass-bg: 213 30% 100% / 0.6;
+    --glass-border: 173 30% 70% / 0.3;
+    
+    /* Shadows - Enhanced */
+    --shadow-aurora: 0 12px 45px hsl(var(--aurora-primary) / 0.35);
+    --shadow-glow: 0 0 35px hsl(var(--aurora-glow) / 0.5);
+    --shadow-card: 0 10px 35px hsl(213 25% 30% / 0.12);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mode - Digital Aurora Theme */
+    --background: 212 60% 7%;
+    --foreground: 213 31% 82%;
+
+    --card: 212 50% 10%;
+    --card-foreground: 213 31% 82%;
+
+    --popover: 212 50% 10%;
+    --popover-foreground: 213 31% 82%;
+
+    --primary: 173 100% 70%;
+    --primary-foreground: 212 60% 7%;
+
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 213 31% 82%;
+
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 173 100% 70%;
+    --accent-foreground: 212 60% 7%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 213 31% 82%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 173 100% 70%;
+
+    --radius: 0.75rem;
+
+    /* Aurora Theme Colors - Dark Mode */
+    --aurora-primary: 173 100% 70%;
+    --aurora-accent: 213 100% 50%;
+    --aurora-violet: 260 25% 55%;
+    --aurora-glow: 173 100% 85%;
+    
+    /* Gradients - Dark Mode */
+    --gradient-aurora: linear-gradient(135deg, hsl(var(--aurora-primary)), hsl(var(--aurora-accent)));
+    --gradient-hero: linear-gradient(180deg, hsl(var(--background)), hsl(212 50% 10%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.05), hsl(0 0% 100% / 0.02));
+    
+    /* Glass morphism - Dark Mode */
+    --glass-bg: 0 0% 100% / 0.05;
+    --glass-border: 0 0% 100% / 0.1;
+    
+    /* Shadows - Dark Mode */
+    --shadow-aurora: 0 10px 40px hsl(var(--aurora-primary) / 0.4);
+    --shadow-glow: 0 0 30px hsl(var(--aurora-glow) / 0.3);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.3);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter cursor-none;
+  }
+
+  /* Custom Starry Cursor */
+  .cursor-star {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+  }
+
+  .cursor-star::before {
+    content: '✦';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: hsl(var(--aurora-primary));
+    font-size: 16px;
+    text-shadow: 0 0 10px hsl(var(--aurora-glow));
+    animation: twinkle 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes twinkle {
+    0% { opacity: 0.7; transform: translate(-50%, -50%) scale(0.8); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+  }
+
+  /* Word Hover Animation */
+  p, h1, h2, h3, h4, h5, h6, span, a, li, div {
+    transition: all 0.2s ease;
+  }
+
+  p:hover, h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover, 
+  span:hover, a:hover, li:hover {
+    color: hsl(var(--aurora-primary));
+    text-shadow: 0 0 8px hsl(var(--aurora-primary) / 0.3);
+    transform: translateY(-1px);
+  }
+}
+
+@layer components {
+  /* Glassmorphism Components */
+  .glass-card {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-card);
+  }
+
+  .aurora-glow {
+    box-shadow: var(--shadow-aurora);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--aurora-primary) / 0.5);
+  }
+
+  /* Hero Background */
+  .hero-bg {
+    background: var(--gradient-hero);
+    position: relative;
+  }
+
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, hsl(var(--aurora-primary) / 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, hsl(var(--aurora-accent) / 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* Button Variants */
+  .btn-aurora {
+    background: var(--gradient-aurora);
+    color: hsl(var(--primary-foreground));
+    border: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-aurora:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-aurora);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid hsl(var(--border));
+    color: hsl(var(--foreground));
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-ghost:hover {
+    background: hsl(var(--accent));
+    border-color: hsl(var(--accent));
+    transform: translateY(-2px);
+  }
+}
+
+@layer utilities {
+  /* Animation Utilities */
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  /* Disable hover effects for name */
+  .no-hover:hover {
+    color: inherit !important;
+    text-shadow: inherit !important;
+    transform: none !important;
+  }
+
+  /* Enhanced animations */
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 1s ease-out;
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 20px hsl(var(--aurora-primary) / 0.5);
+    }
+    to {
+      text-shadow: 0 0 30px hsl(var(--aurora-primary) / 0.8), 0 0 40px hsl(var(--aurora-accent) / 0.3);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--aurora-primary) / 0.4); }
+    50% { box-shadow: 0 0 30px hsl(var(--aurora-primary) / 0.6), 0 0 40px hsl(var(--aurora-accent) / 0.3); }
+  }
+
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-100px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+}
