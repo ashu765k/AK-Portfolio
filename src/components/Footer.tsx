@@ -1,4 +1,4 @@
-import { Heart, Github, Linkedin, Instagram } from 'lucide-react';
+import { Github, Linkedin, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -86,7 +86,7 @@ const Footer = () => {
           <div className="text-center border-t border-border pt-6 w-full">
             <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
               © {currentYear} Designed & Built with
-              <Heart className="h-4 w-4 text-red-500 animate-pulse" />
+              <className="h-4 w-4 text-red-500 animate-pulse" />
               by
               <span className="text-aurora-primary font-medium">Ashutosh Khandai</span>
             </p>
